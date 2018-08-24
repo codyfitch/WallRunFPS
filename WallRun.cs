@@ -25,29 +25,30 @@ public class WallRun : MonoBehaviour {
             jumpCount = 0;
         }
 
-            if (Physics.Raycast(transform.position, transform.right, out hitR, 1))
+        if (Physics.Raycast(transform.position, transform.right, out hitR, 1))
+        {
+            if (hitR.transform.tag == "Wall")
             {
-                if (hitR.transform.tag == "Wall")
-                {
-                    isWallR = true;
-                    isWallL = false;
-                    jumpCount += 1;
-                    rb.useGravity = false;
-                    StartCoroutine(afterRun());
-                }
+                isWallR = true;
+                isWallL = false;
+                jumpCount += 1;
+                rb.useGravity = false;
+                Physics.Raycast(transform.position, -transform.up * 5);
+                StartCoroutine(afterRun());
             }
+        }
        
-            if (Physics.Raycast(transform.position, -transform.right, out hitL, 1))
+        if (Physics.Raycast(transform.position, -transform.right, out hitL, 1))
+        {
+            if (hitL.transform.tag == "Wall")
             {
-                if (hitL.transform.tag == "Wall")
-                {
-                    isWallL = true;
-                    isWallR = false;
-                    jumpCount += 1;
-                    rb.useGravity = false;
-                    StartCoroutine(afterRun());
-                }
+                isWallL = true;
+                isWallR = false;
+                jumpCount += 1;
+                rb.useGravity = false;
+                StartCoroutine(afterRun());
             }
+        }
 	}
 
     IEnumerator afterRun ()
