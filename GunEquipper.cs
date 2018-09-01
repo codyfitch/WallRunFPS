@@ -72,30 +72,35 @@ public class GunEquipper : MonoBehaviour {
             arorb = GameObject.FindWithTag("arorb");
             arorb.SetActive(false);
             assaultRifle.SetActive(true);
+            loadWeapon(assaultRifle);
             arActive = true;
         } else if (col.gameObject.tag == "shotgunorb")
         {
             shotgunorb = GameObject.FindWithTag("shotgunorb");
             shotgunorb.SetActive(false);
             shotgun.SetActive(true);
+            loadWeapon(shotgun);
             shotgunActive = true;
         } else if (col.gameObject.tag == "sniperorb")
         {
             sniperorb = GameObject.FindWithTag("sniperorb");
             sniperorb.SetActive(false);
             sniperRifle.SetActive(true);
+            loadWeapon(sniperRifle);
             sniperActive = true;
         } else if (col.gameObject.tag == "sawedofforb")
         {
             sawedofforb = GameObject.FindWithTag("sawedofforb");
             sawedofforb.SetActive(false);
             sawedOff.SetActive(true);
+            loadWeapon(sawedOff);
             sawedoffActive = true;
         } else if (col.gameObject.tag == "smgorb")
         {
             smgorb = GameObject.FindWithTag("smgorb");
             smgorb.SetActive(false);
             subMachineGun.SetActive(true);
+            loadWeapon(subMachineGun);
             smgActive = true;
         }
     }
